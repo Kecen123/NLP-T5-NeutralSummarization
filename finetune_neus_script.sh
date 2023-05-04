@@ -1,6 +1,6 @@
-export CUDA=1
-export DATA_DIR=/home/nayeon/neutralization/data/naacl2022_lrc_roundup_random_order_probe
-export BSZ=2
+export CUDA=0
+export DATA_DIR=./data/naacl2022_lrc_roundup_random_order_probe
+export BSZ=8
 export ACC_STEP=8
 export LR=3e-5
 export EPOCH=10 
@@ -10,7 +10,7 @@ export OUTPUT_DIR=${PWD}/naacl2022/${MODEL_NAME}.${CUSTOM_NAME}.${LR}.512_250.e$
 # Make output directory if it doesn't exist
 mkdir -p $OUTPUT_DIR
 
-CUDA_VISIBLE_DEVICES=$CUDA python finetune.py \
+CUDA_VISIBLE_DEVICES=$CUDA python src/finetune.py \
 --data_dir=$DATA_DIR \
 --model_name_or_path=facebook/$MODEL_NAME \
 --learning_rate=${LR} \
